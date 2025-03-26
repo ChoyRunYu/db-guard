@@ -33,3 +33,14 @@ localhost:8083/sse
 执行查询sql：/db_guard/database/query_sql/{数据源id}
 执行更新sql：/db_guard/database/update_sql/{数据源id}
 ```
+
+
+### docker部署
+```shell
+# 拉取镜像
+docker pull registry.cn-hangzhou.aliyuncs.com/choyrunyu/db-guard:1.0
+
+# 启动镜像, 需挂载h2配置文件，否则重新部署后数据会丢失
+docekr run -it -d -p 8083:8083 -v 宿主机路径:/root/ --name db-guard registry.cn-hangzhou.aliyuncs.com/choyrunyu/db-guard:1.0
+
+```
